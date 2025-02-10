@@ -34,7 +34,7 @@ void dae::GameObject::RemoveComponent(const std::string& name)
 	// Find the component with the given name using a lambda function
 	auto comp = std::find_if(m_pComponents.begin(), m_pComponents.end(), [&name](Component* pComponent)
 		{
-			return pComponent->GetName() == name;
+			return typeid(pComponent).name() == name;
 		});
 	// If the component was found, remove it
 	if (comp != m_pComponents.end())
@@ -49,7 +49,7 @@ Component* dae::GameObject::GetComponent(const std::string& name)
 	// Find the component with the given name using a lambda function
 	auto comp = std::find_if(m_pComponents.begin(), m_pComponents.end(), [&name](Component* pComponent)
 		{
-			return pComponent->GetName() == name;
+			return typeid(pComponent).name() == name;
 		});
 	// If the component was found, return it
 	if (comp != m_pComponents.end())
@@ -65,7 +65,7 @@ bool dae::GameObject::HasComponent(const std::string& name) const
 	// Find the component with the given name using a lambda function
 	auto comp = std::find_if(m_pComponents.begin(), m_pComponents.end(), [&name](Component* pComponent)
 		{
-			return pComponent->GetName() == name;
+			return typeid(pComponent).name() == name;
 		});
 	// If the component was found, return true
 	if (comp != m_pComponents.end())
