@@ -19,7 +19,7 @@ namespace dae
 
 		void AddComponent(Component* pComponent);
 		void RemoveComponent(const std::string& name);
-		Component* GetComponent(const std::string& name);
+		//Component* GetComponent(const std::string& name);
 		bool HasComponent(const std::string& name) const;
 
 		GameObject() = default;
@@ -29,8 +29,19 @@ namespace dae
 		GameObject& operator=(const GameObject& other) = delete;
 		GameObject& operator=(GameObject&& other) = delete;
 
+		template <typename T>
+		T* GetComponent() {
+			for (auto* component : m_pComponents) {
+				T* derived = dynamic_cast<T*>(component);
+				if (derived) {
+					return derived;
+				}
+			}
+			return nullptr;
+		}
+
 	private:
-		std::vector<Component*> m_pComponents{};
+		std::vector<std::unique_ptr<Component>> m_pComponents{};
 		//Transform m_transform{};
 		// todo: mmm, every gameobject has a texture? Is that correct?
 		//std::shared_ptr<Texture2D> m_texture{};
