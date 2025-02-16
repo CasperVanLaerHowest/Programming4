@@ -2,6 +2,7 @@
 #include <memory>
 #include <vector>
 #include "Component.h"
+#include <unordered_map>
 //#include "Transform.h"
 
 namespace dae
@@ -12,15 +13,29 @@ namespace dae
 	{
 	public:
 		virtual void Update();
-		//virtual void Render() const;
+		virtual void Render() const;
+		void FixedUpdate();
 
-		//void SetTexture(const std::string& filename);
-		//void SetPosition(float x, float y);
+		template <typename T, typename... Args>
+		T* AddComponent(Args&&... args)
+		{
+			auto component = std::make_shared<T>(std::forward<Args>(args)...);
+			component->SetOwner(this);
+			m_pComponents.push_back(component);
+		}
 
-		void AddComponent(Component* pComponent);
-		void RemoveComponent(const std::string& name);
-		//Component* GetComponent(const std::string& name);
-		bool HasComponent(const std::string& name) const;
+		template <typename T>
+		T* GetComponent() const
+		{
+			for (const auto& component : m_pComponents)
+			{
+				if (auto comp = dynamic_cast<T*>(component.get()))
+				{
+					return comp;
+				}
+			}
+			return nullptr;
+		}
 
 		GameObject() = default;
 		virtual ~GameObject();
@@ -28,22 +43,7 @@ namespace dae
 		GameObject(GameObject&& other) = delete;
 		GameObject& operator=(const GameObject& other) = delete;
 		GameObject& operator=(GameObject&& other) = delete;
-
-		template <typename T>
-		T* GetComponent() {
-			for (auto* component : m_pComponents) {
-				T* derived = dynamic_cast<T*>(component);
-				if (derived) {
-					return derived;
-				}
-			}
-			return nullptr;
-		}
-
 	private:
-		std::vector<std::unique_ptr<Component>> m_pComponents{};
-		//Transform m_transform{};
-		// todo: mmm, every gameobject has a texture? Is that correct?
-		//std::shared_ptr<Texture2D> m_texture{};
+		std::vector<std::shared_ptr<Component>> m_pComponents;
 	};
 }
