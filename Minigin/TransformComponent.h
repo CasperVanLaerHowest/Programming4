@@ -2,11 +2,11 @@
 #include "Component.h"
 #include <glm.hpp>
 class TransformComponent final:
-    public Component
+    public dae::Component
 {
 public:
 
-	TransformComponent() = default;
+	TransformComponent();
 	virtual ~TransformComponent() = default;
 	TransformComponent(const TransformComponent& other) = delete;
 	TransformComponent(TransformComponent&& other) = delete;

@@ -1,12 +1,24 @@
 #pragma once
 #include <string>
 
-class Component
-{
-public:
-	virtual ~Component();
-	virtual void Update();
-	virtual void Render() const {}
-	virtual void FixedUpdate() {}
-};
 
+namespace dae
+{
+
+	class GameObject;
+
+	class Component
+	{
+	public:
+		virtual ~Component();
+		virtual void Update();
+		virtual void Render() const {}
+		virtual void FixedUpdate() {}
+
+		void SetOwner(GameObject* owner) { m_pOwner = owner; }
+		GameObject* GetOwner() const { return m_pOwner; }
+
+	private:
+		GameObject* m_pOwner = nullptr;
+	};
+}

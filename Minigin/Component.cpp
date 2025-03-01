@@ -1,5 +1,5 @@
 #include "Component.h"
 
-Component::~Component() = default;
+dae::Component::~Component() = default;
 
-void Component::Update() {};
+void dae::Component::Update() {};

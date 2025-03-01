@@ -1,5 +1,13 @@
 #include "TransformComponent.h"
 
+
+TransformComponent::TransformComponent()
+	: m_Position{ 0,0,0 }
+	, m_Scale{ 1,1,1 }
+	, m_Rotation{ 0,0,0 }
+{
+}
+
 #pragma region Position
 void TransformComponent::SetPosition(float x, float y, float z)
 {

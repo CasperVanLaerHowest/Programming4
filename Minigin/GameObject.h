@@ -19,9 +19,15 @@ namespace dae
 		template <typename T, typename... Args>
 		T* AddComponent(Args&&... args)
 		{
+			// check if component already exists
+			if (T* component = GetComponent<T>())
+			{
+				return component;
+			}
 			auto component = std::make_shared<T>(std::forward<Args>(args)...);
 			component->SetOwner(this);
 			m_pComponents.push_back(component);
+			return component.get();
 		}
 
 		template <typename T>
@@ -37,7 +43,7 @@ namespace dae
 			return nullptr;
 		}
 
-		GameObject() = default;
+		GameObject();
 		virtual ~GameObject();
 		GameObject(const GameObject& other) = delete;
 		GameObject(GameObject&& other) = delete;

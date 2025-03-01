@@ -2,13 +2,18 @@
 #include "GameObject.h"
 #include "ResourceManager.h"
 #include "Renderer.h"
+#include "TransformComponent.h"
 
 dae::GameObject::~GameObject() = default;
 
+dae::GameObject::GameObject()
+{
+	this->AddComponent<TransformComponent>();
+}
 
 void dae::GameObject::Update()
 {
-    for (const auto& component : m_components)
+    for (const auto& component : m_pComponents)
     {
         component->Update();
     }
@@ -16,7 +21,7 @@ void dae::GameObject::Update()
 
 void dae::GameObject::Render() const
 {
-    for (const auto& component : m_components)
+    for (const auto& component : m_pComponents)
     {
         component->Render();
     }
@@ -24,7 +29,7 @@ void dae::GameObject::Render() const
 
 void dae::GameObject::FixedUpdate()
 {
-    for (const auto& component : m_components)
+    for (const auto& component : m_pComponents)
     {
         component->FixedUpdate();
     }
