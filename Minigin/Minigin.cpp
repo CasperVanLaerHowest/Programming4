@@ -12,7 +12,6 @@
 #include "Time.h"
 #include <thread>
 
-
 SDL_Window* g_window{};
 
 void PrintSDLVersion()
@@ -89,6 +88,8 @@ void dae::Minigin::Run(const std::function<void()>& load)
 	auto& input = InputManager::GetInstance();
 	auto& time = Time::GetInstance();
 
+	time.GetDeltaTime();
+
 	// todo: this update loop could use some work.
 
 	bool doContinue = true;
@@ -99,7 +100,7 @@ void dae::Minigin::Run(const std::function<void()>& load)
 		Time::GetInstance().SetDeltaTime(deltaTime);
 		m_LastTime = currentTime;
 		
-		while (lag >= fixedTimeStep)
+		if (lag >= fixedTimeStep)
 		{
 			sceneManager.FixedUpdate();
 			lag -= fixedTimeStep;
@@ -109,7 +110,9 @@ void dae::Minigin::Run(const std::function<void()>& load)
 		sceneManager.Update();
 		renderer.Render();
 
-		const auto sleepTime = currentTime + std::chrono::milliseconds(ms_per_frame) - std::chrono::high_resolution_clock::now();
-		std::this_thread::sleep_for(sleepTime);
+		lag += deltaTime;
+		//small issue with the sleep function, it's not accurate enough
+		/*const auto sleepTime = (currentTime + std::chrono::milliseconds(16) - std::chrono::high_resolution_clock::now()).count();
+		std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));*/
 	}
 }
