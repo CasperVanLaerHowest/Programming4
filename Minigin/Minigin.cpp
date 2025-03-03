@@ -111,8 +111,11 @@ void dae::Minigin::Run(const std::function<void()>& load)
 		renderer.Render();
 
 		lag += deltaTime;
-		//small issue with the sleep function, it's not accurate enough
-		/*const auto sleepTime = (currentTime + std::chrono::milliseconds(16) - std::chrono::high_resolution_clock::now()).count();
-		std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));*/
+		
+		const auto sleepTime = currentTime + std::chrono::milliseconds(16) - std::chrono::high_resolution_clock::now();
+		if (sleepTime > std::chrono::milliseconds(0)) {
+			std::this_thread::sleep_for(sleepTime);
+		}
+		
 	}
 }
