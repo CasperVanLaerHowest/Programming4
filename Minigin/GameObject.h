@@ -70,6 +70,11 @@ namespace dae
 			return false;
 		}
 
+		void AddChild(GameObject* child);
+		void RemoveChild(GameObject* child);
+
+		
+
 		GameObject();
 		virtual ~GameObject();
 		GameObject(const GameObject& other) = delete;
@@ -78,5 +83,9 @@ namespace dae
 		GameObject& operator=(GameObject&& other) = delete;
 	private:
 		std::vector<std::shared_ptr<Component>> m_pComponents;
+		std::vector<GameObject*> m_pChildren;
+		GameObject* m_pParent = nullptr;
+
+		void SetParent(GameObject* parent);
 	};
 }

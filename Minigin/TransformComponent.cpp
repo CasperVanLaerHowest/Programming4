@@ -5,6 +5,7 @@ TransformComponent::TransformComponent()
 	: m_Position{ 0,0,0 }
 	, m_Scale{ 1,1,1 }
 	, m_Rotation{ 0,0,0 }
+	, m_RelativePosition{ 0,0,0 }
 {
 }
 
@@ -19,6 +20,18 @@ void TransformComponent::SetPosition(float x, float y, float z)
 const glm::vec3& TransformComponent::GetPosition()
 {
 	return m_Position;
+}
+
+void TransformComponent::SetRelativePosition(float x, float y, float z)
+{
+	m_RelativePosition.x = x;
+	m_RelativePosition.y = y;
+	m_RelativePosition.z = z;
+}
+
+const glm::vec3& TransformComponent::GetRelativePosition()
+{
+	return m_RelativePosition;
 }
 #pragma endregion Position
 #pragma region Scale

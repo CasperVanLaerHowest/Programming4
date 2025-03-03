@@ -23,11 +23,16 @@ public:
 	void SetRotation(float x, float y, float z);
 	const glm::vec3& GetRotation();
 
+	void SetRelativePosition(float x, float y, float z);
+	const glm::vec3& GetRelativePosition();
+
 private:
 
 	glm::vec3 m_Position;
 	glm::vec3 m_Scale;
 	glm::vec3 m_Rotation;
 
+	//if you are a child of a parent object, you can use this to update a position relative to the parent
+	glm::vec3 m_RelativePosition;
 };
 
