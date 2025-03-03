@@ -35,6 +35,14 @@ void dae::GameObject::FixedUpdate()
     }
 }
 
+void dae::GameObject::LateUpdate()
+{
+	for (const auto& component : m_pComponents)
+	{
+		component->LateUpdate();
+	}
+}
+
 //void dae::GameObject::Update()
 //{
 //	for (Component* pComponent : m_pComponents)

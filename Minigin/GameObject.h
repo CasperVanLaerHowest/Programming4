@@ -14,7 +14,8 @@ namespace dae
 	public:
 		virtual void Update();
 		virtual void Render() const;
-		void FixedUpdate();
+		virtual void FixedUpdate();
+		virtual void LateUpdate();
 
 		template <typename T, typename... Args>
 		T* AddComponent(Args&&... args)

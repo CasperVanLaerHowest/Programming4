@@ -99,6 +99,9 @@
     <ClInclude Include="..\3rdParty\implot-master\implot_internal.h">
       <Filter>ImPlot</Filter>
     </ClInclude>
+    <ClInclude Include="FpsComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ResourceManager.cpp">
@@ -178,6 +181,9 @@
     </ClCompile>
     <ClCompile Include="..\3rdParty\implot-master\implot_items.cpp">
       <Filter>ImPlot</Filter>
+    </ClCompile>
+    <ClCompile Include="FpsComponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
