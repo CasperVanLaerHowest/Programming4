@@ -44,6 +44,20 @@ namespace dae
 			return nullptr;
 		}
 
+		//remove component
+		template <typename T>
+		void RemoveComponent()
+		{
+			for (size_t i = 0; i < m_pComponents.size(); ++i)
+			{
+				if (auto comp = dynamic_cast<T*>(m_pComponents[i].get()))
+				{
+					m_pComponents.erase(m_pComponents.begin() + i);
+					return;
+				}
+			}
+		}
+
 		GameObject();
 		virtual ~GameObject();
 		GameObject(const GameObject& other) = delete;
