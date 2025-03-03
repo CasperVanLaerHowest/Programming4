@@ -1,11 +1,10 @@
 #pragma once
 #include "Component.h"
-#include "TextRenderer.h"
 class FpsComponent :
     public dae::Component
 {
 public:
-	FpsComponent();
+	FpsComponent() = default;
 	virtual ~FpsComponent() = default;
 	virtual void Update() override;
 	//virtual void Render();

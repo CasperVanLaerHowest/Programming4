@@ -1,14 +1,8 @@
 #include "FpsComponent.h"
-#include "Renderer.h"
 #include "Time.h"
 #include <string>
-//#include "TextRenderer.h"
-#include "GameObject.h" // Add this include
-
-
-FpsComponent::FpsComponent()
-{
-}
+#include "GameObject.h" 
+#include "TextRenderer.h"
 
 void FpsComponent::Update()
 {
