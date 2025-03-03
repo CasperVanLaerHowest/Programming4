@@ -44,7 +44,6 @@ namespace dae
 			return nullptr;
 		}
 
-		//remove component
 		template <typename T>
 		void RemoveComponent()
 		{
@@ -56,6 +55,19 @@ namespace dae
 					return;
 				}
 			}
+		}
+
+		template <typename T>
+		bool HasComponent() const
+		{
+			for (const auto& component : m_pComponents)
+			{
+				if (auto comp = dynamic_cast<T*>(component.get()))
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		GameObject();
