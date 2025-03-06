@@ -41,6 +41,19 @@ void dae::GameObject::LateUpdate()
 	{
 		component->LateUpdate();
 	}
+
+	// Update children
+    auto transform = this->GetComponent<TransformComponent>();
+	if (transform->GetDirtyFlag()) 
+	{
+		auto correctPos = transform->GetPosition() + transform->GetRotation();
+		for (auto child : m_pChildren)
+		{
+			child->GetComponent<TransformComponent>()->SetRelativePosition(correctPos.x, correctPos.y, correctPos.z);
+		}
+		transform->SetDirtyFlag(false);
+		
+	}
 }
 
 void dae::GameObject::AddChild(GameObject* child)

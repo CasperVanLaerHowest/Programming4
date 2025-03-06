@@ -36,7 +36,10 @@ void TextRenderer::Render() const
 	if (m_textTexture != nullptr)
 	{
 		const auto& pos = GetOwner()->GetComponent<TransformComponent>()->GetPosition();
-		dae::Renderer::GetInstance().RenderTexture(*m_textTexture, pos.x, pos.y);
+		const auto& relativePos = GetOwner()->GetComponent<TransformComponent>()->GetRelativePosition();
+		const auto& rotation = GetOwner()->GetComponent<TransformComponent>()->GetRotation();
+		const auto& truePos = pos + relativePos + rotation;
+		dae::Renderer::GetInstance().RenderTexture(*m_textTexture, truePos.x, truePos.y);
 	}
 }
 

@@ -73,6 +73,8 @@ namespace dae
 		void AddChild(GameObject* child);
 		void RemoveChild(GameObject* child);
 
+		bool hasParent() const { return m_pParent != nullptr; }
+
 		
 
 		GameObject();

@@ -8,6 +8,9 @@ public:
 
 	TransformComponent();
 	virtual ~TransformComponent() = default;
+
+	virtual void Update() override;
+
 	TransformComponent(const TransformComponent& other) = delete;
 	TransformComponent(TransformComponent&& other) = delete;
 	TransformComponent& operator=(const TransformComponent& other) = delete;
@@ -26,6 +29,9 @@ public:
 	void SetRelativePosition(float x, float y, float z);
 	const glm::vec3& GetRelativePosition();
 
+	bool GetDirtyFlag() const { return m_IsDirty; }
+	void SetDirtyFlag(bool flag) { m_IsDirty = flag; }
+
 private:
 
 	glm::vec3 m_Position;
@@ -34,5 +40,7 @@ private:
 
 	//if you are a child of a parent object, you can use this to update a position relative to the parent
 	glm::vec3 m_RelativePosition;
+
+	bool m_IsDirty = false;
 };
 

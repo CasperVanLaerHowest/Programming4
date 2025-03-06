@@ -1,6 +1,5 @@
 #include "TransformComponent.h"
 
-
 TransformComponent::TransformComponent()
 	: m_Position{ 0,0,0 }
 	, m_Scale{ 1,1,1 }
@@ -9,12 +8,18 @@ TransformComponent::TransformComponent()
 {
 }
 
+void TransformComponent::Update()
+{
+
+}
+
 #pragma region Position
 void TransformComponent::SetPosition(float x, float y, float z)
 {
 	m_Position.x = x;
 	m_Position.y = y;
 	m_Position.z = z;
+	m_IsDirty = true;
 }
 
 const glm::vec3& TransformComponent::GetPosition()
@@ -27,6 +32,7 @@ void TransformComponent::SetRelativePosition(float x, float y, float z)
 	m_RelativePosition.x = x;
 	m_RelativePosition.y = y;
 	m_RelativePosition.z = z;
+	m_IsDirty = false;
 }
 
 const glm::vec3& TransformComponent::GetRelativePosition()
@@ -40,6 +46,7 @@ void TransformComponent::SetScale(float x, float y, float z)
 	m_Scale.x = x;
 	m_Scale.y = y;
 	m_Scale.z = z;
+	m_IsDirty = true;
 }
 
 const glm::vec3& TransformComponent::GetScale()
@@ -53,6 +60,7 @@ void TransformComponent::SetRotation(float x, float y, float z)
 	m_Rotation.x = x;
 	m_Rotation.y = y;
 	m_Rotation.z = z;
+	m_IsDirty = true;
 }
 
 const glm::vec3& TransformComponent::GetRotation()
