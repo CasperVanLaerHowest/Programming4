@@ -100,7 +100,6 @@ void dae::Minigin::Run(const std::function<void()>& load)
 		const float deltaTime = std::chrono::duration<float>(currentTime - m_LastTime).count();
 		time.SetDeltaTime(deltaTime);
 		m_LastTime = currentTime;
-		std::cout << "DeltaTime: " << deltaTime << std::endl;
 		lag += deltaTime;
 		
 		if (lag >= fixedTimeStep)
