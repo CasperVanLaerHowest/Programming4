@@ -4,7 +4,7 @@
 #include "GameObject.h" 
 #include "TextRenderer.h"
 
-void FpsComponent::Update()
+void FpsComponent::FixedUpdate()
 {
 	m_Fps = calculateFps() + " FPS";
 	this->GetOwner()->GetComponent<TextRenderer>()->SetText(m_Fps);

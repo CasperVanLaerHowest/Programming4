@@ -6,7 +6,7 @@ class FpsComponent :
 public:
 	FpsComponent() = default;
 	virtual ~FpsComponent() = default;
-	virtual void Update() override;
+	virtual void FixedUpdate() override;
 	//virtual void Render();
 	//virtual void FixedUpdate() override;
 	//virtual void LateUpdate() override;

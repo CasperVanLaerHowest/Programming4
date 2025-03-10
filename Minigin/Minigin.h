@@ -18,8 +18,8 @@ namespace dae
 		Minigin& operator=(Minigin&& other) = delete;
 	private:
 		std::chrono::high_resolution_clock::time_point m_LastTime;
-		float lag = 0.0f;
-		float fixedTimeStep = 1 / 60;
+		//float lag = 0.0f;
+		float fixedTimeStep = 1;
 		int ms_per_frame = 16;
 	};
 }

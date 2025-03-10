@@ -20,9 +20,9 @@ void RotatorComponent::Update()
 
 	transform->SetRotation(rotation.x, rotation.y, rotation.z);
 
-	m_CurrentAngle += (m_Speed * Time::GetInstance().GetDeltaTime());
+	m_CurrentAngle += (m_Speed * Time::GetInstance().GetDeltaTime()); // deltatime is the issue
 
-	std::cout << "Current Angle: " << m_CurrentAngle << "  " << rotation.x << "  " << rotation.y << std::endl;
+	//std::cout << "Current Angle: " << m_CurrentAngle << "  " << rotation.x << "  " << rotation.y << std::endl;
 
 	//transform->SetRotation(transform->GetRotation().x + m_Speed, transform->GetRotation().y + m_Speed, transform->GetRotation().z + m_Speed);
 }
