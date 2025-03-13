@@ -1,0 +1,36 @@
+#include "MoveCommand.h"
+#include "TransformComponent.h"
+#include "Time.h"
+
+MoveCommand::MoveCommand(std::shared_ptr<dae::GameObject> GameObject, Direction direction)
+	: m_pGameObject{ GameObject }, m_Direction{ direction }
+{
+	m_Speed = 100.0f;
+	//m_Transform = m_pGameObject->GetComponent<TransformComponent>();
+}
+
+void MoveCommand::Execute()
+{
+	auto transform = m_pGameObject->GetComponent<TransformComponent>();
+	auto pos = transform->GetPosition();
+	
+
+	switch (m_Direction)
+	{
+	case Direction::UP:
+		transform->SetPosition(pos.x, pos.y - (m_Speed * Time::GetInstance().GetDeltaTime()), pos.z);
+		break;
+	case Direction::DOWN:
+		transform->SetPosition(pos.x, pos.y + (m_Speed * Time::GetInstance().GetDeltaTime()), pos.z);
+		break;
+	case Direction::LEFT:
+		transform->SetPosition(pos.x - (m_Speed * Time::GetInstance().GetDeltaTime()), pos.y, pos.z);
+		break;
+	case Direction::RIGHT:
+		transform->SetPosition(pos.x + (m_Speed * Time::GetInstance().GetDeltaTime()), pos.y, pos.z);
+		break;
+	case Direction::NONE:
+		//m_pGameObject->GetComponent<MovementComponent>()->SetDirection(std::pair(0, 0));
+		break;
+	}
+}
