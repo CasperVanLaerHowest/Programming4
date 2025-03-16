@@ -51,32 +51,3 @@ void HealthComponent::TakeDamage()
 	m_Health -= 1;
 	m_DirtyFlag = true;
 }
-//void HealthComponent::TakeDamage(int damage)
-//{
-//	m_Health -= damage;
-//}
-//
-//void HealthComponent::Heal(int heal)
-//{
-//	if (m_Health + heal > m_MaxHealth)
-//	{
-//		m_Health = m_MaxHealth;
-//		return;
-//	}
-//	m_Health += heal;
-//}
-//
-//int HealthComponent::GetHealth() const
-//{
-//	return m_Health;
-//}
-//
-//int HealthComponent::GetMaxHealth() const
-//{
-//	return m_MaxHealth;
-//}
-//
-//bool HealthComponent::IsDead() const
-//{
-//	return m_Health <= 0;
-//}

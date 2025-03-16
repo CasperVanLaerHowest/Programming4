@@ -14,6 +14,7 @@
 #include <chrono>
 #include <iostream>
 #include "EventManager.h"
+#include <steam_api.h>
 
 SDL_Window* g_window{};
 
@@ -100,6 +101,7 @@ void dae::Minigin::Run(const std::function<void()>& load)
 	bool doContinue = true;
 	while (doContinue)
 	{
+		SteamAPI_RunCallbacks();
 		const auto currentTime = std::chrono::high_resolution_clock::now();
 		const float deltaTime = std::chrono::duration<float>(currentTime - m_LastTime).count();
 		time.SetDeltaTime(deltaTime);
