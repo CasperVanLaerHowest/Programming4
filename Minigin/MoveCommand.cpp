@@ -9,8 +9,13 @@ MoveCommand::MoveCommand(std::shared_ptr<dae::GameObject> GameObject, Direction 
 	//m_Transform = m_pGameObject->GetComponent<TransformComponent>();
 }
 
-void MoveCommand::Execute()
+void MoveCommand::Execute(bool notfirstExecute)
 {
+	if (notfirstExecute)
+	{
+		//std::cout << "first MoveCommand executed" << std::endl;
+	}
+	
 	auto transform = m_pGameObject->GetComponent<TransformComponent>();
 	auto pos = transform->GetPosition();
 	

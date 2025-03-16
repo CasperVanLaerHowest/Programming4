@@ -17,7 +17,7 @@ class MoveCommand :
 {
 public:
 	MoveCommand(std::shared_ptr<dae::GameObject> GameObject, Direction direction);
-	virtual void Execute() override;
+	virtual void Execute(bool notfirstExecute) override;
 	//void SetDirection(glm::vec3& direction) { m_Direction = direction; }
 
 private:

@@ -7,7 +7,7 @@ class JumpCommand :
 {
 public:
 	JumpCommand(std::shared_ptr<dae::GameObject> GameObject);
-	virtual void Execute() override;
+	virtual void Execute(bool notfirstExecute) override;
 
 private:
 	std::shared_ptr<dae::GameObject> m_pGameObject;

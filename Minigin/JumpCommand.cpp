@@ -7,7 +7,9 @@ JumpCommand::JumpCommand(std::shared_ptr<dae::GameObject> GameObject)
 {
 }
 
-void JumpCommand::Execute()
+void JumpCommand::Execute(bool notfirstExecute)
 {
-	std::cout << "JumpCommand executed" << std::endl;
+	if (!notfirstExecute){
+		std::cout << "first JumpCommand executed" << std::endl;
+	}
 }

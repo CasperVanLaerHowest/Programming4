@@ -2,6 +2,12 @@
 #include "InputManager.h"
 #include <backends/imgui_impl_sdl2.h>
 #include "MoveCommand.h"
+#include "ControllerInput.h"
+
+dae::InputManager::InputManager()
+{
+	m_ControllerInput = std::make_unique<ControllerInput>();
+}
 
 bool dae::InputManager::ProcessInput()
 {
@@ -27,6 +33,13 @@ bool dae::InputManager::ProcessInput()
 void dae::InputManager::BindCommand(SDL_Scancode key, std::unique_ptr <Command> command)
 {
 	m_Commands[key] = std::move(command);
+	m_KeyboardInputState[key] = false;
+}
+
+void dae::InputManager::BindCommand(Inputs input, std::unique_ptr <Command> command)
+{
+	m_ControllerCommands[input] = std::move(command);
+	m_ControllerInputState[input] = false;
 }
 
 void dae::InputManager::ExecuteCommand()
@@ -34,10 +47,20 @@ void dae::InputManager::ExecuteCommand()
 	for (auto& command : m_Commands)
 	{
 		if (IsPressed(command.first)) {
-			command.second->Execute();
+			command.second->Execute(m_KeyboardInputState[command.first]);
+            
 		}
-		//command.second->Execute();
 	}
+
+	for (auto& command : m_ControllerCommands)
+	{
+		if (IsPressed(command.first)) {
+			command.second->Execute(true);
+		}
+	}
+
+	UpdateKeyboardInputState();
+	UpdateControllerInputState();
 }
 
 bool dae::InputManager::IsPressed(SDL_Scancode key)
@@ -47,4 +70,29 @@ bool dae::InputManager::IsPressed(SDL_Scancode key)
 		return true;
 	}
 	return false;
+}
+
+bool dae::InputManager::IsPressed(Inputs input)
+{
+	if (m_ControllerInput->IsPressed(input)) {
+		return true;
+	}
+	return false;
+}
+
+void dae::InputManager::UpdateKeyboardInputState()
+{
+	const Uint8* state = SDL_GetKeyboardState(NULL);
+	for (auto& key : m_KeyboardInputState)
+	{
+		key.second = state[key.first];
+	}
+}
+
+void dae::InputManager::UpdateControllerInputState()
+{
+	for (auto& input : m_ControllerInputState)
+	{
+		input.second = m_ControllerInput->IsPressed(input.first);
+	}
 }

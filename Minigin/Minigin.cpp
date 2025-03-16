@@ -13,6 +13,7 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include "EventManager.h"
 
 SDL_Window* g_window{};
 
@@ -89,6 +90,9 @@ void dae::Minigin::Run(const std::function<void()>& load)
 	auto& sceneManager = SceneManager::GetInstance();
 	auto& input = InputManager::GetInstance();
 	auto& time = Time::GetInstance();
+	auto& eventManager = EventManager::GetInstance();
+
+	eventManager.AddEvent("Start");
 
 	float lag = 0.0f;
 	m_LastTime = std::chrono::high_resolution_clock::now();

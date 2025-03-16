@@ -2,7 +2,7 @@
 class Command
 {
 public:
-    virtual void Execute() = 0;
-    virtual ~Command() {}
+    virtual void Execute(bool notfirstExecute) = 0;
+	virtual ~Command() {};
 };
 
