@@ -10,6 +10,7 @@ public:
 	virtual void FixedUpdate() override;
 
 	void TakeDamage();
+	int GetHealth() const { return m_Health; }
 
 private:
 	int m_Health;

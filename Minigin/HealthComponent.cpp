@@ -22,7 +22,7 @@ void HealthComponent::FixedUpdate()
 
 void HealthComponent::TakeDamage()
 {
-	this->GetOwner()->Notify(dae::Event::TAKE_DAMAGE);
 	m_Health -= 1;
+	this->GetOwner()->Notify(dae::Event::TAKE_DAMAGE);
 	m_DirtyFlag = true;
 }

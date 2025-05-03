@@ -14,8 +14,8 @@ namespace dae
 	class Observer
 	{
 	private:
-		virtual ~Observer() {}
 	public:
-		virtual void onNotify(const GameObject& entity, Event event) = 0;
+		virtual ~Observer() {}
+		virtual void onNotify(dae::GameObject& entity, Event event) = 0;
 	};
 }

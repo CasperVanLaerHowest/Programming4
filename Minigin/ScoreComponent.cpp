@@ -21,7 +21,7 @@ void ScoreComponent::FixedUpdate()
 
 void ScoreComponent::AddScore()
 {
-	this->GetOwner()->Notify(dae::Event::ADD_SCORE);
 	m_Score += 100;
+	this->GetOwner()->Notify(dae::Event::ADD_SCORE);
 	m_DirtyFlag = true;
 }
