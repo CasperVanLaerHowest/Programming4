@@ -5,17 +5,16 @@ class HealthComponent :
     public dae::Component
 {
 public:
-	HealthComponent(int health, std::string player);
+	HealthComponent(int health);
 	virtual ~HealthComponent() = default;
 	virtual void FixedUpdate() override;
+
+	void TakeDamage();
 
 private:
 	int m_Health;
 	int m_MaxHealth;
 
 	bool m_DirtyFlag = true;
-	std::string m_Event;
-
-	void TakeDamage();
 };
 

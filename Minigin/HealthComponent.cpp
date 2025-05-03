@@ -2,10 +2,9 @@
 #include "TextRenderer.h"
 #include "GameObject.h"
 
-HealthComponent::HealthComponent(int health, std::string player)
+HealthComponent::HealthComponent(int health)
 	: m_Health{ health }
-	, m_MaxHealth{ health },
-	m_Event{ player }
+	, m_MaxHealth{ health }
 {
 	//this->GetOwner()->GetComponent<TextRenderer>()->SetText("Health: " + std::to_string(m_Health));
 }
@@ -14,7 +13,7 @@ void HealthComponent::FixedUpdate()
 {
 	if (m_DirtyFlag)
 	{
-		this->GetOwner()->GetComponent<TextRenderer>()->SetText("Health: " + std::to_string(m_Health));
+		//this->GetOwner()->GetComponent<TextRenderer>()->SetText("Health: " + std::to_string(m_Health));
 		m_DirtyFlag = false;
 	}
 }
