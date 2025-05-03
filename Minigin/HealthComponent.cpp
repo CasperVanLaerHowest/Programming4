@@ -12,37 +12,10 @@ HealthComponent::HealthComponent(int health, std::string player)
 
 void HealthComponent::FixedUpdate()
 {
-	ProcessEvents();
 	if (m_DirtyFlag)
 	{
 		this->GetOwner()->GetComponent<TextRenderer>()->SetText("Health: " + std::to_string(m_Health));
 		m_DirtyFlag = false;
-	}
-}
-
-void HealthComponent::ProcessEvents()
-{
-	auto& eventManager = EventManager::GetInstance();
-	ListenEvent(eventManager);
-	WriteEvent(eventManager);
-}
-
-void HealthComponent::ListenEvent(EventManager& eventManager)
-{
-	//auto& eventManager = EventManager::GetInstance();
-	if (eventManager.IsEventActive(std::string{m_Event + " takes damage"}))
-	{
-		TakeDamage();
-		eventManager.RemoveEvent(std::string{ m_Event + " takes damage" });
-	}
-}
-
-void HealthComponent::WriteEvent(EventManager& eventManager)
-{
-	//auto& eventManager = EventManager::GetInstance();
-	if (m_Health <= 0) 
-	{
-		eventManager.AddEvent(std::string{ m_Event + " died" });
 	}
 }
 

@@ -13,8 +13,6 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
-#include "EventManager.h"
-#include <steam_api.h>
 
 SDL_Window* g_window{};
 
@@ -91,9 +89,6 @@ void dae::Minigin::Run(const std::function<void()>& load)
 	auto& sceneManager = SceneManager::GetInstance();
 	auto& input = InputManager::GetInstance();
 	auto& time = Time::GetInstance();
-	auto& eventManager = EventManager::GetInstance();
-
-	eventManager.AddEvent("Start");
 
 	float lag = 0.0f;
 	m_LastTime = std::chrono::high_resolution_clock::now();
@@ -101,7 +96,6 @@ void dae::Minigin::Run(const std::function<void()>& load)
 	bool doContinue = true;
 	while (doContinue)
 	{
-		SteamAPI_RunCallbacks();
 		const auto currentTime = std::chrono::high_resolution_clock::now();
 		const float deltaTime = std::chrono::duration<float>(currentTime - m_LastTime).count();
 		time.SetDeltaTime(deltaTime);
