@@ -3,6 +3,7 @@
 #include <vector>
 #include "Component.h"
 #include <unordered_map>
+#include "Observer.h"
 //#include "Transform.h"
 
 namespace dae
@@ -75,6 +76,16 @@ namespace dae
 
 		bool hasParent() const { return m_pParent != nullptr; }
 
+		void addObserver(Observer* observer);
+		void removeObserver(Observer* observer);
+
+		void Notify(const Event& event)
+		{
+			for (auto observer : m_Observers)
+			{
+				observer->onNotify(*this, event);
+			}
+		}
 		
 
 		GameObject();
@@ -89,5 +100,7 @@ namespace dae
 		GameObject* m_pParent = nullptr;
 
 		void SetParent(GameObject* parent);
+
+		std::vector<Observer*> m_Observers;
 	};
 }

@@ -6,20 +6,23 @@ HealthComponent::HealthComponent(int health)
 	: m_Health{ health }
 	, m_MaxHealth{ health }
 {
-	//this->GetOwner()->GetComponent<TextRenderer>()->SetText("Health: " + std::to_string(m_Health));
 }
 
 void HealthComponent::FixedUpdate()
 {
 	if (m_DirtyFlag)
 	{
-		//this->GetOwner()->GetComponent<TextRenderer>()->SetText("Health: " + std::to_string(m_Health));
+		if (m_Health <= 0)
+		{
+			this->GetOwner()->Notify(dae::Event::PLAYER_DEAD);
+		}
 		m_DirtyFlag = false;
 	}
 }
 
 void HealthComponent::TakeDamage()
 {
+	this->GetOwner()->Notify(dae::Event::TAKE_DAMAGE);
 	m_Health -= 1;
 	m_DirtyFlag = true;
 }
