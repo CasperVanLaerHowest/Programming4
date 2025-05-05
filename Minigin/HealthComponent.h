@@ -1,8 +1,10 @@
 #pragma once
 #include "Component.h"
+#include "Subject.h"
 
 class HealthComponent :
-    public dae::Component
+	public dae::Component,
+	public dae::Subject
 {
 public:
 	HealthComponent(int health);

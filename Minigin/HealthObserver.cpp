@@ -2,8 +2,7 @@
 #include "TextRenderer.h"
 #include "HealthComponent.h"
 
-HealthObserver::HealthObserver(std::shared_ptr<dae::GameObject> healthText)
-	: m_HealthText(healthText)
+HealthObserver::HealthObserver()
 {
 }
 
@@ -13,20 +12,15 @@ void HealthObserver::onNotify(dae::GameObject& entity, dae::Event event)
 	{
 		case dae::Event::TAKE_DAMAGE:
 		{
-			auto healthText = m_HealthText->GetComponent<TextRenderer>();
-			if (healthText)
-			{
-				healthText->SetText("Health: " + std::to_string(entity.GetComponent<HealthComponent>()->GetHealth()));
-			}
+			this->GetOwner()->GetComponent<TextRenderer>()
+				->SetText("Health: " + std::to_string(entity.GetComponent<HealthComponent>()
+					->GetHealth()));
 			break;
 		}
 		case dae::Event::PLAYER_DEAD:
 		{
-			auto healthText = m_HealthText->GetComponent<TextRenderer>();
-			if (healthText)
-			{
-				healthText->SetText("Game Over");
-			}
+			this->GetOwner()->GetComponent<TextRenderer>()
+				->SetText("Player Dead");
 			break;
 		}
 	}

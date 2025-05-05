@@ -1,7 +1,10 @@
 #pragma once
 #include "Component.h"
+#include "Subject.h"
+
 class ScoreComponent :
-    public dae::Component
+    public dae::Component,
+	public dae::Subject
 {
 public:
 	ScoreComponent();

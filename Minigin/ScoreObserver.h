@@ -1,14 +1,13 @@
 #pragma once
 #include "Observer.h"
 class ScoreObserver :
+	public dae::Component,
     public dae::Observer
 {
 public:
-    ScoreObserver(std::shared_ptr<dae::GameObject>);
+    ScoreObserver();
     virtual ~ScoreObserver() = default;
 
     virtual void onNotify(dae::GameObject& entity, dae::Event event) override;
-private:
-    std::shared_ptr<dae::GameObject> m_ScoreText;
 };
 

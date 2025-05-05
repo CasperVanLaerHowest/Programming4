@@ -2,13 +2,10 @@
 #include <memory>
 #include <vector>
 #include "Component.h"
-#include "Observer.h"
 //#include "Transform.h"
 
 namespace dae
 {
-	class Observer;
-	enum class Event;
 	//class Texture2D;
 
 	class GameObject final
@@ -77,10 +74,10 @@ namespace dae
 
 		bool hasParent() const { return m_pParent != nullptr; }
 
-		void addObserver(std::shared_ptr<Observer> observer);
+		/*void addObserver(std::shared_ptr<Observer> observer);
 		void removeObserver(std::shared_ptr<Observer> observer);
 
-		void Notify(const Event& event);
+		void Notify(const Event& event);*/
 		
 
 		GameObject();
@@ -96,6 +93,6 @@ namespace dae
 
 		void SetParent(GameObject* parent);
 
-		std::vector<std::shared_ptr<Observer>> m_Observers;
+		//std::vector<std::shared_ptr<Observer>> m_Observers;
 	};
 }

@@ -14,7 +14,8 @@ void HealthComponent::FixedUpdate()
 	{
 		if (m_Health <= 0)
 		{
-			this->GetOwner()->Notify(dae::Event::PLAYER_DEAD);
+			//this->GetOwner()->Notify(dae::Event::PLAYER_DEAD);
+			this->Notify(*GetOwner(), dae::Event::PLAYER_DEAD);
 		}
 		m_DirtyFlag = false;
 	}
@@ -23,6 +24,7 @@ void HealthComponent::FixedUpdate()
 void HealthComponent::TakeDamage()
 {
 	m_Health -= 1;
-	this->GetOwner()->Notify(dae::Event::TAKE_DAMAGE);
+	this->Notify(*GetOwner(), dae::Event::TAKE_DAMAGE);
+	//this->GetOwner()->Notify(dae::Event::TAKE_DAMAGE);
 	m_DirtyFlag = true;
 }

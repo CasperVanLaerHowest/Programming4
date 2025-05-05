@@ -13,7 +13,8 @@ void ScoreComponent::FixedUpdate()
 	{
 		if (m_Score >= 1000)
 		{
-			this->GetOwner()->Notify(dae::Event::PLAYER_WON);
+			this->Notify(*GetOwner(), dae::Event::PLAYER_WON);
+			//this->GetOwner()->Notify(dae::Event::PLAYER_WON);
 		}
 		m_DirtyFlag = false;
 	}
@@ -22,6 +23,7 @@ void ScoreComponent::FixedUpdate()
 void ScoreComponent::AddScore()
 {
 	m_Score += 100;
-	this->GetOwner()->Notify(dae::Event::ADD_SCORE);
+	this->Notify(*GetOwner(), dae::Event::ADD_SCORE);
+	//this->GetOwner()->Notify(dae::Event::ADD_SCORE);
 	m_DirtyFlag = true;
 }

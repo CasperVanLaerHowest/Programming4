@@ -73,20 +73,20 @@ void dae::GameObject::SetParent(GameObject* parent)
     m_pParent = parent;
 }
 
-void dae::GameObject::addObserver(std::shared_ptr<Observer> observer)
-{
-	m_Observers.push_back(observer);
-}
-
-void dae::GameObject::removeObserver(std::shared_ptr<Observer> observer)
-{
-	m_Observers.erase(std::remove(m_Observers.begin(), m_Observers.end(), observer), m_Observers.end());
-}
-
-void dae::GameObject::Notify(const Event& event)
-{
-	for (const auto& observer : m_Observers)
-	{
-		observer->onNotify(*this, event);
-	}
-}
+//void dae::GameObject::addObserver(std::shared_ptr<Observer> observer)
+//{
+//	m_Observers.push_back(observer);
+//}
+//
+//void dae::GameObject::removeObserver(std::shared_ptr<Observer> observer)
+//{
+//	m_Observers.erase(std::remove(m_Observers.begin(), m_Observers.end(), observer), m_Observers.end());
+//}
+//
+//void dae::GameObject::Notify(const Event& event)
+//{
+//	for (const auto& observer : m_Observers)
+//	{
+//		observer->onNotify(*this, event);
+//	}
+//}

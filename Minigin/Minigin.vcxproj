@@ -232,6 +232,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\$(PlatformTarget)\*.dll" "$(OutputPat
     <ClInclude Include="ScoreComponent.h" />
     <ClInclude Include="ScoreObserver.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Subject.h" />
     <ClInclude Include="TakeDamageCommand.h" />
     <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Texture2D.h" />
@@ -272,6 +273,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\$(PlatformTarget)\*.dll" "$(OutputPat
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScoreComponent.cpp" />
     <ClCompile Include="ScoreObserver.cpp" />
+    <ClCompile Include="Subject.cpp" />
     <ClCompile Include="TakeDamageCommand.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Texture2D.cpp" />
