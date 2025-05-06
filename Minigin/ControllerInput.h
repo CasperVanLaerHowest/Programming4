@@ -1,6 +1,6 @@
 #pragma once
+#include <memory>
 #include <Windows.h>
-#include <XInput.h>
 
 enum class Inputs
 {
@@ -30,14 +30,16 @@ class ControllerInput
 {
 public:
 	ControllerInput();
+	~ControllerInput();
 
+	ControllerInput(const ControllerInput&) = delete;
+	ControllerInput& operator=(const ControllerInput&) = delete;
+	ControllerInput(ControllerInput&&) noexcept;
+	ControllerInput& operator=(ControllerInput&&) noexcept;
 
-	//bool IsPressed(WORD button, SHORT* thumbX = nullptr, SHORT* thumbY = nullptr, BYTE* triggerR = nullptr, BYTE* triggerL = nullptr);
 	bool IsPressed(Inputs input);
 
 private:
-	//XINPUT_STATE m_State;
+	class Impl;
+	std::unique_ptr<Impl> m_pImpl;
 };
-
-
-
