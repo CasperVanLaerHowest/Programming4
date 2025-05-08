@@ -2,7 +2,7 @@
 #include "TransformComponent.h"
 #include "GameObject.h" // Include the header file for GameObject
 #include <math.h>
-#include "Time.h"
+#include "GameTime.h"
 #include <iostream>
 
 RotatorComponent::RotatorComponent(float speed, float distance)
@@ -20,7 +20,7 @@ void RotatorComponent::Update()
 
 	transform->SetRotation(rotation.x, rotation.y, rotation.z);
 
-	m_CurrentAngle += (m_Speed * Time::GetInstance().GetDeltaTime()); // deltatime is the issue
+	m_CurrentAngle += (m_Speed * GameTime::GetInstance().GetDeltaTime()); // deltatime is the issue
 
 	//std::cout << "Current Angle: " << m_CurrentAngle << "  " << rotation.x << "  " << rotation.y << std::endl;
 

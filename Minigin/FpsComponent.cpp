@@ -1,5 +1,5 @@
 #include "FpsComponent.h"
-#include "Time.h"
+#include "GameTime.h"
 #include <string>
 #include "GameObject.h" 
 #include "TextRenderer.h"
@@ -12,7 +12,7 @@ void FpsComponent::FixedUpdate()
 
 std::string FpsComponent::calculateFps()
 {
-	float delta = Time::GetInstance().GetDeltaTime();
+	float delta = GameTime::GetInstance().GetDeltaTime();
 	float fps = 1 / delta;
 
 	std::stringstream stream;

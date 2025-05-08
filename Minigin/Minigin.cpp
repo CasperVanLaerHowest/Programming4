@@ -9,7 +9,7 @@
 #include "SceneManager.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
-#include "Time.h"
+#include "GameTime.h"
 #include <thread>
 #include <chrono>
 #include <iostream>
@@ -88,7 +88,7 @@ void dae::Minigin::Run(const std::function<void()>& load)
 	auto& renderer = Renderer::GetInstance();
 	auto& sceneManager = SceneManager::GetInstance();
 	auto& input = InputManager::GetInstance();
-	auto& time = Time::GetInstance();
+	auto& time = GameTime::GetInstance();
 
 	float lag = 0.0f;
 	m_LastTime = std::chrono::high_resolution_clock::now();
