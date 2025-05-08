@@ -274,7 +274,6 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\$(PlatformTarget)\*.dll" "$(OutputPat
     <ClCompile Include="HealthObserver.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="JumpCommand.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Minigin.cpp" />
     <ClCompile Include="MoveCommand.cpp" />
     <ClCompile Include="Observer.cpp" />
