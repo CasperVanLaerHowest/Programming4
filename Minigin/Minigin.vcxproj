@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WIN32;_WIN64;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\implot-master;$(SolutionDir)\3rdParty\imgui-1.91.8;$(SolutionDir)\3rdParty\sdk\public\steam;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -126,7 +126,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\$(PlatformTarget)\*.dll" "$(OutputPat
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WIN32;_WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\implot-master;$(SolutionDir)\3rdParty\imgui-1.91.8;$(SolutionDir)\3rdParty\sdk\public\steam;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <SupportJustMyCode>false</SupportJustMyCode>
@@ -157,7 +157,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\$(PlatformTarget)\*.dll" "$(OutputPat
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WIN32;_WIN64;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\implot-master;$(SolutionDir)\3rdParty\imgui-1.91.8;$(SolutionDir)\3rdParty\sdk\public\steam;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -188,7 +188,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\$(PlatformTarget)\*.dll" "$(OutputPat
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WIN32;_WIN64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\implot-master;$(SolutionDir)\3rdParty\imgui-1.91.8;$(SolutionDir)\3rdParty\sdk\public\steam;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -212,16 +212,6 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\$(PlatformTarget)\*.dll" "$(OutputPat
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\3rdParty\imgui-1.91.8\backends\imgui_impl_opengl3.h" />
-    <ClInclude Include="..\3rdParty\imgui-1.91.8\backends\imgui_impl_sdl2.h" />
-    <ClInclude Include="..\3rdParty\imgui-1.91.8\imconfig.h" />
-    <ClInclude Include="..\3rdParty\imgui-1.91.8\imgui.h" />
-    <ClInclude Include="..\3rdParty\imgui-1.91.8\imgui_internal.h" />
-    <ClInclude Include="..\3rdParty\imgui-1.91.8\imstb_rectpack.h" />
-    <ClInclude Include="..\3rdParty\imgui-1.91.8\imstb_textedit.h" />
-    <ClInclude Include="..\3rdParty\imgui-1.91.8\imstb_truetype.h" />
-    <ClInclude Include="..\3rdParty\implot-master\implot.h" />
-    <ClInclude Include="..\3rdParty\implot-master\implot_internal.h" />
     <ClInclude Include="AddScoreCommand.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Component.h" />
@@ -253,16 +243,6 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\$(PlatformTarget)\*.dll" "$(OutputPat
     <ClInclude Include="TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\3rdParty\imgui-1.91.8\backends\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="..\3rdParty\imgui-1.91.8\backends\imgui_impl_sdl2.cpp" />
-    <ClCompile Include="..\3rdParty\imgui-1.91.8\imgui.cpp" />
-    <ClCompile Include="..\3rdParty\imgui-1.91.8\imgui_demo.cpp" />
-    <ClCompile Include="..\3rdParty\imgui-1.91.8\imgui_draw.cpp" />
-    <ClCompile Include="..\3rdParty\imgui-1.91.8\imgui_tables.cpp" />
-    <ClCompile Include="..\3rdParty\imgui-1.91.8\imgui_widgets.cpp" />
-    <ClCompile Include="..\3rdParty\implot-master\implot.cpp" />
-    <ClCompile Include="..\3rdParty\implot-master\implot_demo.cpp" />
-    <ClCompile Include="..\3rdParty\implot-master\implot_items.cpp" />
     <ClCompile Include="AddScoreCommand.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Component.cpp" />

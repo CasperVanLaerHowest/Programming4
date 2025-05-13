@@ -34,20 +34,16 @@ void load()
 	auto& InputManager = dae::InputManager::GetInstance();
 	auto& ResourceManager = dae::ResourceManager::GetInstance();
 
-	/*auto go = std::make_shared<dae::GameObject>();
-	go->AddComponent<TextureRenderer>("background.tga");
-	scene.Add(go);*/
-
-	auto yo = std::make_shared<dae::GameObject>();
+	/*auto yo = std::make_shared<dae::GameObject>();
 	yo->AddComponent<TextureRenderer>("logo.tga");
 	yo->GetComponent<TransformComponent>()->SetPosition(216, 180, 0);
-	scene.Add(yo);
+	scene.Add(yo);*/
 
 	auto font = ResourceManager.LoadFont("Lingua.otf", 36);
-	auto to = std::make_shared<dae::GameObject>();
-	to->AddComponent<TextRenderer>("Programming 4 Assignment", font);
-	to->GetComponent<TransformComponent>()->SetPosition(80, 20, 0);
-	scene.Add(to);
+	//auto to = std::make_shared<dae::GameObject>();
+	//to->AddComponent<TextRenderer>("Programming 4 Assignment", font);
+	//to->GetComponent<TransformComponent>()->SetPosition(80, 20, 0);
+	//scene.Add(to);
 
 	auto so = std::make_shared<dae::GameObject>();
 	so->AddComponent<TextRenderer>("FPS", font);
