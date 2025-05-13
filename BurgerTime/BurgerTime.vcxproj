@@ -151,12 +151,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\Minigin\AddScoreCommand.h" />
+    <ClInclude Include="..\Minigin\FpsComponent.h" />
+    <ClInclude Include="..\Minigin\HealthComponent.h" />
+    <ClInclude Include="..\Minigin\HealthObserver.h" />
+    <ClInclude Include="..\Minigin\JumpCommand.h" />
+    <ClInclude Include="..\Minigin\MoveCommand.h" />
+    <ClInclude Include="..\Minigin\RotatorComponent.h" />
+    <ClInclude Include="..\Minigin\ScoreComponent.h" />
+    <ClInclude Include="..\Minigin\ScoreObserver.h" />
+    <ClInclude Include="..\Minigin\TakeDamageCommand.h" />
+    <ClInclude Include="..\Minigin\TransformComponent.h" />
     <ClInclude Include="BurgerTime.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Minigin\AddScoreCommand.cpp" />
+    <ClCompile Include="..\Minigin\FpsComponent.cpp" />
+    <ClCompile Include="..\Minigin\HealthComponent.cpp" />
+    <ClCompile Include="..\Minigin\HealthObserver.cpp" />
+    <ClCompile Include="..\Minigin\JumpCommand.cpp" />
+    <ClCompile Include="..\Minigin\MoveCommand.cpp" />
+    <ClCompile Include="..\Minigin\RotatorComponent.cpp" />
+    <ClCompile Include="..\Minigin\ScoreComponent.cpp" />
+    <ClCompile Include="..\Minigin\ScoreObserver.cpp" />
+    <ClCompile Include="..\Minigin\TakeDamageCommand.cpp" />
+    <ClCompile Include="..\Minigin\TransformComponent.cpp" />
     <ClCompile Include="BurgerTime.cpp" />
   </ItemGroup>
   <ItemGroup>
