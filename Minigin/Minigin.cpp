@@ -13,6 +13,7 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include "SoundSystem.h"
 
 SDL_Window* g_window{};
 
@@ -84,6 +85,8 @@ dae::Minigin::~Minigin()
 void dae::Minigin::Run(const std::function<void()>& load)
 {
 	load();
+
+	std::unique_ptr sound = std::make_unique<SoundSystem>();
 
 	auto& renderer = Renderer::GetInstance();
 	auto& sceneManager = SceneManager::GetInstance();

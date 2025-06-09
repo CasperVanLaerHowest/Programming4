@@ -25,6 +25,9 @@
     <Filter Include="Observers">
       <UniqueIdentifier>{ce1847bb-51a2-4d74-b0e3-24f5c90e9486}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Service">
+      <UniqueIdentifier>{69b4aedd-6567-47b8-8bb9-027da682bd8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -81,6 +84,12 @@
     <ClInclude Include="Subject.h">
       <Filter>Observers</Filter>
     </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundSystem.h">
+      <Filter>Service</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Renderer.cpp">
@@ -133,6 +142,9 @@
     </ClCompile>
     <ClCompile Include="Subject.cpp">
       <Filter>Observers</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundSystem.cpp">
+      <Filter>Service</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
