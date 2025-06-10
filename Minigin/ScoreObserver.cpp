@@ -15,15 +15,15 @@ void ScoreObserver::onNotify(dae::GameObject& entity, dae::Event event)
 	case dae::Event::ADD_SCORE:
 	{
 		this->GetOwner()->GetComponent<TextRenderer>()
-			->SetText("Score: " + std::to_string(entity.GetComponent<ScoreComponent>()
+			->SetText(std::to_string(entity.GetComponent<ScoreComponent>()
 				->GetScore()));
 		break;
 	}
-	case dae::Event::PLAYER_WON:
+	/*case dae::Event::PLAYER_WON:
 	{
 		this->GetOwner()->GetComponent<TextRenderer>()
 			->SetText("Player Won");
 		break;
-	}
+	}*/
 	}
 }

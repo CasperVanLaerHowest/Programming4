@@ -9,15 +9,10 @@ SoundSystem::SoundSystem() {
 	spec.freq = MIX_DEFAULT_FREQUENCY;
 	spec.format = MIX_DEFAULT_FORMAT;
 	spec.channels = MIX_DEFAULT_CHANNELS;
-	spec.samples = 4096; // Default buffer size
-	if (SDL_Init(SDL_INIT_AUDIO) != 0) {
-		std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
-		return;
-	}
-	else {
-		std::cerr << "SDL audio initialized successfully." << std::endl;
-	}
-	Mix_QuerySpec(&spec.freq, &spec.format, &spec.channels);
+	//spec.samples = 4096; // Default buffer size
+	
+	//Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+	
 }
 
 void SoundSystem::PlaySound(int soundID)

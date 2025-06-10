@@ -162,6 +162,7 @@
     <ClInclude Include="..\Minigin\ScoreObserver.h" />
     <ClInclude Include="..\Minigin\TakeDamageCommand.h" />
     <ClInclude Include="..\Minigin\TransformComponent.h" />
+    <ClInclude Include="BoxCollisionComponent.h" />
     <ClInclude Include="BurgerTime.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Resource.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="..\Minigin\ScoreObserver.cpp" />
     <ClCompile Include="..\Minigin\TakeDamageCommand.cpp" />
     <ClCompile Include="..\Minigin\TransformComponent.cpp" />
+    <ClCompile Include="BoxCollisionComponent.cpp" />
     <ClCompile Include="BurgerTime.cpp" />
   </ItemGroup>
   <ItemGroup>
