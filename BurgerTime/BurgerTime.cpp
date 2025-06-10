@@ -992,6 +992,35 @@ void load()
 	
 
 #pragma endregion Platform row 13
+
+#pragma region 4plates
+
+	auto plate1 = std::make_shared<dae::GameObject>();
+	plate1->AddComponent<BoxCollisionComponent>(20, 20);
+	plate1->GetComponent<TransformComponent>()->SetPosition(135, 450, 0);
+	plate1->AddComponent<TextureRenderer>("pot.png");
+	scene1.Add(plate1);
+
+	auto plate2 = std::make_shared<dae::GameObject>();
+	plate2->AddComponent<BoxCollisionComponent>(20, 20);
+	plate2->GetComponent<TransformComponent>()->SetPosition(231, 450, 0);
+	plate2->AddComponent<TextureRenderer>("pot.png");
+	scene1.Add(plate2);
+
+	auto plate3 = std::make_shared<dae::GameObject>();
+	plate3->AddComponent<BoxCollisionComponent>(20, 20);
+	plate3->GetComponent<TransformComponent>()->SetPosition(328, 450, 0);
+	plate3->AddComponent<TextureRenderer>("pot.png");
+	scene1.Add(plate3);
+
+	auto plate4 = std::make_shared<dae::GameObject>();
+	plate4->AddComponent<BoxCollisionComponent>(20, 20);
+	plate4->GetComponent<TransformComponent>()->SetPosition(425, 450, 0);
+	plate4->AddComponent<TextureRenderer>("pot.png");
+	scene1.Add(plate4);
+
+#pragma endregion 4plates
+
 	// --- Bind All Commands ---
 	bindCommands(character1, character2);
 
