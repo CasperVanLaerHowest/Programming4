@@ -2,6 +2,7 @@
 #include "Command.h"
 #include "GameObject.h"
 #include <glm.hpp>
+#include "CollisionManager.h"
 
 enum class Direction
 {
@@ -25,5 +26,6 @@ private:
 	Direction m_Direction;
 
 	float m_Speed;
+	dae::CollisionManager& CollisionManager = dae::CollisionManager::GetInstance();
 };
 

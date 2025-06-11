@@ -23,16 +23,27 @@ void MoveCommand::Execute(bool notfirstExecute)
 	switch (m_Direction)
 	{
 	case Direction::UP:
-		transform->SetPosition(pos.x, pos.y - (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.z);
+		if (CollisionManager.CheckCollision(m_pGameObject,dae::TypeObject::LADDER)) {
+			transform->SetPosition(pos.x, pos.y - (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.z);
+		}
 		break;
 	case Direction::DOWN:
-		transform->SetPosition(pos.x, pos.y + (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.z);
+		if (CollisionManager.CheckBottomCollision(m_pGameObject,dae::TypeObject::LADDER)) {
+			transform->SetPosition(pos.x, pos.y + (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.z);
+		}
+		
 		break;
 	case Direction::LEFT:
-		transform->SetPosition(pos.x - (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.y, pos.z);
+		if (CollisionManager.CheckBottomCollision(m_pGameObject, dae::TypeObject::PLATFORM))
+		{
+			transform->SetPosition(pos.x - (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.y, pos.z);
+		}
 		break;
 	case Direction::RIGHT:
-		transform->SetPosition(pos.x + (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.y, pos.z);
+		if (CollisionManager.CheckBottomCollision(m_pGameObject, dae::TypeObject::PLATFORM))
+		{
+			transform->SetPosition(pos.x + (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.y, pos.z);
+		}
 		break;
 	case Direction::NONE:
 		//m_pGameObject->GetComponent<MovementComponent>()->SetDirection(std::pair(0, 0));
