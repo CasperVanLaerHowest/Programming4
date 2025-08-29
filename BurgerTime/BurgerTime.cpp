@@ -106,58 +106,58 @@ void load()
 	loadLevel1(scene1);
 #pragma region ladders
 	auto CollisionBoxLadder01 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder01->AddComponent<BoxCollisionComponent>(22, 160);
-	CollisionBoxLadder01->GetComponent<TransformComponent>()->SetPosition(115, 234, 0); // Y: 394 - 160 = 234
+	CollisionBoxLadder01->AddComponent<BoxCollisionComponent>(22, 162); // 160 + 2 = 162
+	CollisionBoxLadder01->GetComponent<TransformComponent>()->SetPosition(115, 232, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder01, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder02 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder02->AddComponent<BoxCollisionComponent>(22, 64);
-	CollisionBoxLadder02->GetComponent<TransformComponent>()->SetPosition(115, 106, 0); // Y: 170 - 64 = 106
+	CollisionBoxLadder02->AddComponent<BoxCollisionComponent>(22, 66); // 64 + 2 = 66
+	CollisionBoxLadder02->GetComponent<TransformComponent>()->SetPosition(115, 104, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder02, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder03 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder03->AddComponent<BoxCollisionComponent>(22, 160);
-	CollisionBoxLadder03->GetComponent<TransformComponent>()->SetPosition(163, 170, 0); // Y: 330 - 160 = 170
+	CollisionBoxLadder03->AddComponent<BoxCollisionComponent>(22, 162); // 160 + 2 = 162
+	CollisionBoxLadder03->GetComponent<TransformComponent>()->SetPosition(163, 168, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder03, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder04 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder04->AddComponent<BoxCollisionComponent>(22, 288);
-	CollisionBoxLadder04->GetComponent<TransformComponent>()->SetPosition(211, 106, 0); // Y: 394 - 288 = 106
+	CollisionBoxLadder04->AddComponent<BoxCollisionComponent>(22, 290); // 288 + 2 = 290
+	CollisionBoxLadder04->GetComponent<TransformComponent>()->SetPosition(211, 104, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder04, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder05 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder05->AddComponent<BoxCollisionComponent>(22, 96);
-	CollisionBoxLadder05->GetComponent<TransformComponent>()->SetPosition(259, 106, 0); // Y: 202 - 96 = 106
+	CollisionBoxLadder05->AddComponent<BoxCollisionComponent>(22, 98); // 96 + 2 = 98
+	CollisionBoxLadder05->GetComponent<TransformComponent>()->SetPosition(259, 104, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder05, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder06 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder06->AddComponent<BoxCollisionComponent>(22, 288);
-	CollisionBoxLadder06->GetComponent<TransformComponent>()->SetPosition(307, 106, 0); // Y: 394 - 288 = 106
+	CollisionBoxLadder06->AddComponent<BoxCollisionComponent>(22, 290); // 288 + 2 = 290
+	CollisionBoxLadder06->GetComponent<TransformComponent>()->SetPosition(307, 104, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder06, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder07 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder07->AddComponent<BoxCollisionComponent>(22, 96);
-	CollisionBoxLadder07->GetComponent<TransformComponent>()->SetPosition(355, 170, 0); // Y: 266 - 96 = 170
+	CollisionBoxLadder07->AddComponent<BoxCollisionComponent>(22, 98); // 96 + 2 = 98
+	CollisionBoxLadder07->GetComponent<TransformComponent>()->SetPosition(355, 168, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder07, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder08 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder08->AddComponent<BoxCollisionComponent>(22, 288);
-	CollisionBoxLadder08->GetComponent<TransformComponent>()->SetPosition(403, 106, 0); // Y: 394 - 288 = 106
+	CollisionBoxLadder08->AddComponent<BoxCollisionComponent>(22, 290); // 288 + 2 = 290
+	CollisionBoxLadder08->GetComponent<TransformComponent>()->SetPosition(403, 104, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder08, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder09 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder09->AddComponent<BoxCollisionComponent>(22, 160);
-	CollisionBoxLadder09->GetComponent<TransformComponent>()->SetPosition(451, 234, 0); // Y: 394 - 160 = 234
+	CollisionBoxLadder09->AddComponent<BoxCollisionComponent>(22, 162); // 160 + 2 = 162
+	CollisionBoxLadder09->GetComponent<TransformComponent>()->SetPosition(451, 232, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder09, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder10 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder10->AddComponent<BoxCollisionComponent>(22, 96);
-	CollisionBoxLadder10->GetComponent<TransformComponent>()->SetPosition(499, 298, 0); // Y: 394 - 96 = 298
+	CollisionBoxLadder10->AddComponent<BoxCollisionComponent>(22, 98); // 96 + 2 = 98
+	CollisionBoxLadder10->GetComponent<TransformComponent>()->SetPosition(499, 296, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder10, dae::TypeObject::LADDER);
 
 	auto CollisionBoxLadder11 = std::make_shared<dae::GameObject>();
-	CollisionBoxLadder11->AddComponent<BoxCollisionComponent>(22, 128);
-	CollisionBoxLadder11->GetComponent<TransformComponent>()->SetPosition(499, 106, 0); // Y: 234 - 128 = 106
+	CollisionBoxLadder11->AddComponent<BoxCollisionComponent>(22, 130); // 128 + 2 = 130
+	CollisionBoxLadder11->GetComponent<TransformComponent>()->SetPosition(499, 104, 0);
 	CollisionManager.AddCollisionObject(CollisionBoxLadder11, dae::TypeObject::LADDER);
 #pragma endregion ladders
 #pragma region platforms

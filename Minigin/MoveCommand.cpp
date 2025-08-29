@@ -36,13 +36,15 @@ void MoveCommand::Execute(bool notfirstExecute)
 	case Direction::LEFT:
 		if (CollisionManager.CheckBottomCollision(m_pGameObject, dae::TypeObject::PLATFORM))
 		{
-			transform->SetPosition(pos.x - (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.y, pos.z);
+			float y = CollisionManager.GetYCollision(m_pGameObject, dae::TypeObject::PLATFORM);
+			transform->SetPosition(pos.x - (m_Speed * GameTime::GetInstance().GetDeltaTime()), y, pos.z);
 		}
 		break;
 	case Direction::RIGHT:
 		if (CollisionManager.CheckBottomCollision(m_pGameObject, dae::TypeObject::PLATFORM))
 		{
-			transform->SetPosition(pos.x + (m_Speed * GameTime::GetInstance().GetDeltaTime()), pos.y, pos.z);
+			float y = CollisionManager.GetYCollision(m_pGameObject, dae::TypeObject::PLATFORM);
+			transform->SetPosition(pos.x + (m_Speed * GameTime::GetInstance().GetDeltaTime()), y, pos.z);
 		}
 		break;
 	case Direction::NONE:

@@ -154,3 +154,55 @@ bool dae::CollisionManager::CheckCollision(const std::shared_ptr<GameObject>& ob
 	}
 	return false;
 }
+
+float dae::CollisionManager::GetYCollision(const std::shared_ptr<GameObject>& object, TypeObject type) const
+{
+	if (!object)
+		return 0.f;
+	const auto& collisionBox = object->GetComponent<BoxCollisionComponent>();
+	const auto& transform = object->GetComponent<TransformComponent>();
+	if (!collisionBox || !transform)
+		return 0.f;
+	const auto& transformPos = transform->GetPosition();
+	float characterLeftX = transformPos.x;
+	float characterRightX = transformPos.x + collisionBox->GetWidth();
+	float characterBottomY = transformPos.y + collisionBox->GetHeight();
+
+	float checkDistanceP = 7.f; // Distance to check for platform collision
+	switch (type)
+	{
+	case dae::TypeObject::PLATFORM:
+		for (const auto& platform : m_Platforms)
+		{
+			const auto& platformBox = platform->GetComponent<BoxCollisionComponent>();
+			const auto& platformTransform = platform->GetComponent<TransformComponent>(); // Added const auto& for consistency
+
+			if (!platformBox || !platformTransform) // Added check for platform components
+				continue; // Skip this platform if its components are invalid
+
+			const auto& platformTransformPos = platformTransform->GetPosition(); // Use GetPosition from platformTransform
+			float platformLeftX = platformTransformPos.x;
+			float platformRightX = platformTransformPos.x + platformBox->GetWidth();
+			float platformTopY = platformTransformPos.y;
+			float platformBottomY = platformTransformPos.y + platformBox->GetHeight(); // Assuming y increases downwards
+
+			// 1. Check for horizontal overlap
+			bool horizontalOverlap = (characterRightX > platformLeftX && characterLeftX < platformRightX);
+			// 2. Check for vertical overlap (with look-ahead)
+			bool verticalOverlap = (characterBottomY + checkDistanceP >= platformTopY && characterBottomY < platformBottomY);
+
+
+			if (horizontalOverlap && verticalOverlap)
+			{
+				return platformTopY - collisionBox->GetHeight() - platformBox->GetHeight(); // Return the top Y of the collided platform
+			}
+			
+		}
+		break;
+	default:
+		// If 'type' is not PLATFORM, or any other unhandled type, return 0.f.
+		// LADDERS and WALLS are not handled in this function.
+		break;
+	}
+	return 0.f; // No collision found
+}

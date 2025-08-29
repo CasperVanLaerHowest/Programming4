@@ -18,7 +18,7 @@ namespace dae
 		void AddCollisionObject(std::shared_ptr<GameObject> object, TypeObject type);
 		bool CheckBottomCollision(const std::shared_ptr<GameObject>& object, TypeObject type) const;
 		bool CheckCollision(const std::shared_ptr<GameObject>& object, TypeObject type) const;
-
+		float GetYCollision(const std::shared_ptr<GameObject>& object, TypeObject type) const;
 	private:
 		friend class Singleton<CollisionManager>;
 		CollisionManager() = default;
